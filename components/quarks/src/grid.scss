@@ -29,23 +29,23 @@
 $grid-columns: 12 !default;
 
 // Default gutter size between columns
-$grid-gutter: to-rem(24) !default;
+$grid-gutter: rem(24) !default;
 
 // Grid breakpoints for responsive design
 $grid-breakpoints: (
   xs: 0,
-  sm: to-rem(576),
-  md: to-rem(768),
-  lg: to-rem(1024),
-  xl: to-rem(1200)
+  sm: rem(576),
+  md: rem(768),
+  lg: rem(1024),
+  xl: rem(1200)
 ) !default;
 
 // Maximum container widths for each breakpoint
 $container-max-widths: (
-  sm: to-rem(864),
-  md: to-rem(1056),
-  lg: to-rem(1248),
-  xl: to-rem(1440)
+  sm: rem(864),
+  md: rem(1056),
+  lg: rem(1248),
+  xl: rem(1440)
 ) !default;
 
 // Media query mixin: wraps content in min-width media query

@@ -2,6 +2,7 @@
   "extends": "stylelint-config-standard-scss",
   "rules": {
     "block-no-empty": true,
+    "selector-class-pattern": null,
     "color-no-invalid-hex": true,
     "color-hex-length": "short",
     "declaration-block-no-duplicate-properties": true,

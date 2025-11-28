@@ -34,12 +34,6 @@ button:focus-visible,
   box-shadow: 0 0 0 4px #0a66c2;
 }
 
-.button:active,
-button:active,
-[role="button"]:active {
-  transform: scale(0.97);
-}
-
 button:disabled,
 .button[aria-disabled="true"],
 [role="button"][aria-disabled="true"] {
@@ -63,4 +57,18 @@ button:disabled,
   [role="button"] {
     transition: none;
   }
+}
+
+.button--reset {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.button--reset:hover,
+.button--reset:focus,
+.button--reset:active {
+  background: none;
 }
