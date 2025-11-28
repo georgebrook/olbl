@@ -1,0 +1,65 @@
+{#
+/**
+ * Hero Organism Component
+ *
+ * Available variables:
+ * - hero_id           : optional ID for the hero section
+ * - hero_image_src    : URL of the hero image
+ * - hero_image_alt    : Alt text for the hero image
+ * - hero_text         : Raw text content to display instead of heading/subheading
+ * - hero_buttons      : array of button variables (optional, each item compatible with button component)
+ * - hero_scroll_down  : boolean, whether to show scroll down icon (default: true)
+ * - hero_scroll_target: ID or selector for scroll target (default: '#next-section')
+ * - hero_base_class   : base class for the hero (default: 'hero')
+ * - hero_modifiers    : array of BEM modifiers for the hero
+ */
+#}
+
+{% set hero_base_class = hero_base_class|default('hero-image') %}
+{% set hero_modifiers = hero_modifiers|default([]) %}
+{% set hero_id = hero_id|default('hero') %}
+{% set hero_scroll_down = hero_scroll_down is defined ? hero_scroll_down : true %}
+{% set hero_scroll_target = hero_scroll_target|default('#next-section') %}
+
+{% set hero_base_class = hero_base_class|default('hero') %}
+{% set hero_modifiers = hero_modifiers|default([]) %}
+{% set hero_id = hero_id|default('hero') %}
+{% set hero_scroll_down = hero_scroll_down is defined ? hero_scroll_down : true %}
+{% set hero_scroll_target = hero_scroll_target|default('#next-section') %}
+
+<section 
+  {{ bem(hero_base_class, hero_modifiers) }}
+  id="{{ hero_id }}"
+  role="banner"
+  aria-label="Hero section"
+>
+
+  {# Hero Image Block #}
+  {% block hero_image %}
+    {% if hero_image_src %}
+      <div {{ bem(hero_base_class, [], 'image-wrapper') }}>
+        {% include 'olbl:image' with {
+          image_src: hero_image_src,
+          image_alt: hero_image_alt|default(''),
+          image_base_class: hero_base_class,
+          image_blockname: 'image'
+        } %}
+      </div>
+    {% endif %}
+  {% endblock %}
+
+  {# Hero Content #}
+  <div {{ bem(hero_base_class, [], 'content') }}>
+    {% if hero_text %}
+      <div {{ bem(hero_base_class, [], 'text') }}>
+        {{ hero_text }}
+      </div>
+    {% endif %}
+  </div>
+
+  {% include 'olbl:button' with {
+    button_content: 'show me the icon',
+    button_icon: 'chevron',
+  } %}
+
+</section>
