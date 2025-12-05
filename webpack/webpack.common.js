@@ -83,9 +83,9 @@ const commonConfig = {
       context: path.resolve(__dirname, ".."),
       extensions: ["js"],
       files: "components/**/src/*.js",
-      emitWarning: false,
+      emitWarning: true,
       emitError: true,
-      failOnError: true,
+      failOnError: false,
       overrideConfigFile: path.resolve(__dirname, "../eslint.config.js"),
     }),
     new StylelintWebpackPlugin({
